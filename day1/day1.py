@@ -8,4 +8,4 @@ with open('input.txt') as infile:
             if current > highest:
                 highest = current
             current = 0
-    print(highest if highest >= current else current)
+print(highest if highest >= current else current)
