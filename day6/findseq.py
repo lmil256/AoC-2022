@@ -1,8 +1,9 @@
-TARGET = 4
+import sys
+target = int(sys.argv[1])
 with open('input.txt') as infile:
     seq = ''
     numread = 0
-    while len(seq) < TARGET:
+    while len(seq) < target:
         # Read a character
         seq += infile.read(1)
         numread += 1
