@@ -48,17 +48,17 @@ def main():
             line = infile.readline()
     pwd = pwd.cd('/')
 
-    LIMIT = 100000
-    total = 0
+    TARGET = pwd.size - 40000000
+    smallest = pwd.size
     stack = [pwd]
-    # DFS through the directory tree to find directories with size <= LIMIT
     while len(stack) > 0:
         curr = stack.pop()
-        if curr.size <= LIMIT:
-            total += curr.size
+        if curr.size <= smallest:
+            smallest = curr.size
         for dirname in curr.directories:
-            stack.append(curr.directories[dirname])
+            if curr.directories[dirname].size >= TARGET:
+                stack.append(curr.directories[dirname])
 
-    print(total)
+    print(smallest)
 
 main()
